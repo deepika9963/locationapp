@@ -15,6 +15,7 @@ var reviewSchema = new mongoose.Schema({
     }
 });
 
+
 var openingTimeSchema = new mongoose.Schema({
     days: {
         type: String,
