@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = "mongodb://0.0.0.0:3000/";
+var dbURI = "mongodb://0.0.0.0:27017/";
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGOLAB_URI;
 }
@@ -38,12 +38,7 @@ process.on('SIGINT', function() {
         process.exit(0);
     });
 });
-// For Heroku app termination
-process.on('SIGTERM', function() {
-    gracefulShutdown('Heroku app termination', function() {
-        process.exit(0);
-    });
-});
+
 
 // BRING IN YOUR SCHEMAS & MODELS
 require('./locations');
